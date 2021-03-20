@@ -5,8 +5,8 @@ It does not support everything that imaginary offers, but should be enough for m
 ## Usage
 
 ```js
-const ImaginaryClient = require('imaginary-client');
-const client = new ImaginaryClient('http://localhost:9000');
+const ImaginaryClient = require('creebet');
+const client = new ImaginaryClient({ url: 'http://localhost:9000' });
 
 // use the resize op with a given url
 const stream = await client.get('resize', {
@@ -22,7 +22,7 @@ stream.pipe(fs.createWriteStream('./rezized.png'));
 ## Usage with cloud run
 
 ```js
-const ImaginaryClient = require('imaginary-client');
+const ImaginaryClient = require('creebet');
 const { GoogleAuth } = require('google-auth-library');
 
 const BASE_URL = 'https://imaginary-api-foo-bar.a.run.app';
@@ -31,7 +31,7 @@ const idTokenClient = new GoogleAuth().getIdTokenClient(BASE_URL);
 // setup client
 const client = new ImaginaryClient({
   url: BASE_URL,
-  headers() {
+  async headers() {
     const readyClient = await idTokenClient;
     return readyClient.getRequestHeaders(BASE_URL);
   },
