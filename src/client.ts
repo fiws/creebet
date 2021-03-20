@@ -28,7 +28,7 @@ interface InfoResponse {
 }
 
 // returned from the convenience "defaultResized" function
-interface PresetOpsResult {
+interface PresetOpsJob {
   preset: Preset;
   // Promise that resolves to a stream containing the image
   result: Promise<GotReturn>;
@@ -122,7 +122,7 @@ export default class Client {
    * @param {Preset[]} Array of presets to use
    * @returns Array of objects containing the `preset` (for reference) and `result`
    */
-  async runPresets(url: string, presets = defaultPresets) : Promise<PresetOpsResult[]> {
+  runPresets(url: string, presets = defaultPresets) : PresetOpsJob[] {
     if (!url) throw new Error('Not implemented for input streams yet');
 
     const ops = presets
@@ -132,7 +132,6 @@ export default class Client {
         return { result, preset };
       });
 
-    // todo: maybe rate limit
-    return Promise.all(ops);
+    return ops;
   }
 }
