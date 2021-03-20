@@ -1,6 +1,6 @@
 {
   "name": "creebet",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Simple & modern imaginary client",
   "main": "dist/src/index.js",
   "engines": {
