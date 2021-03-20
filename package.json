@@ -2,13 +2,13 @@
   "name": "creebet",
   "version": "0.3.0",
   "description": "Simple & modern imaginary client",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "engines": {
     "node": ">=10.0.0"
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc ./src/index.ts --outDir dist -m commonjs -t ES2019",
+    "build": "tsc -b tsconfig.json",
     "test": "ava"
   },
   "keywords": [
