@@ -1,7 +1,6 @@
-import Client from './client';
+import ImaginaryClient from './client';
 import Presets from './presets';
 import * as ImaginaryTypes from './imaginary-types';
 
-export { Presets, ImaginaryTypes };
-export default Client;
+export { Presets, ImaginaryTypes, ImaginaryClient };
 

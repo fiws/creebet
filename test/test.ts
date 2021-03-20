@@ -1,7 +1,7 @@
 import test from 'ava';
 
 import { GoogleAuth } from 'google-auth-library';
-import ImaginaryClient from '../src/index';
+import { ImaginaryClient } from '../src/index';
 
 const BASE_URL = process.env.IMAGINARY_URI;
 const auth = new GoogleAuth();
