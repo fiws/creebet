@@ -9,7 +9,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc -b tsconfig.json",
+    "build": "tsc --declaration",
     "test": "ava"
   },
   "keywords": [
