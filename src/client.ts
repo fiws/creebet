@@ -127,7 +127,7 @@ export default class Client {
 
     const ops = presets
       .map(preset => {
-        const result = this.get(preset.op || 'resize', { ...preset.settings, type: preset.type, url });
+        const result = this.get(preset.op || 'resize', { ...preset.settings, url });
 
         return { result, preset };
       });
