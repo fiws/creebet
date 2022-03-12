@@ -10,7 +10,7 @@ type HeaderHook = () => Headers | Promise<Headers>;
 type ClientConstructor = {
   url: string;
   headers?: Headers | HeaderHook;
-  ExtendOptions?,
+  ExtendOptions?: ExtendOptions,
 };
 
 // is returned from the "GET" endpoint
@@ -117,7 +117,7 @@ export default class Client {
 
   /**
    * Resizes given image with all given presets. Defaults to images for:
-   * 1080.jpeg, 1080.webp, 580.jpeg, 580.webp, 120.jpeg, 120.webp
+   * 1080.jpeg, 1080.webp, 480.jpeg, 480.webp, 144.jpeg, 144.webp
    * @param {string} url Source url
    * @param {Preset[]} Array of presets to use
    * @returns Array of objects containing the `preset` (for reference) and `result`
@@ -127,7 +127,7 @@ export default class Client {
 
     const ops = presets
       .map(preset => {
-        const result = this.get(preset.op || 'resize', { ...preset.settings, url });
+        const result = this.get(preset.op || 'resize', { ...preset.settings, type: preset.type, url });
 
         return { result, preset };
       });
